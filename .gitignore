@@ -1,0 +1,7 @@
+# Local start script
+start-local-server.bat
+
+# OS/System files
+Thumbs.db
+Desktop.ini
+.DS_Store
