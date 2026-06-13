@@ -707,6 +707,7 @@ main {
     box-shadow: var(--shadow-md);
     position: relative;
     z-index: 2;
+    filter: grayscale(100%);
 }
 
 .about-image-accent {
