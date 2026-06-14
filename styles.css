@@ -677,7 +677,7 @@ main {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--color-white); /* White background for clean blending */
+    background-color: var(--color-primary); /* Base green for multiply duotone */
     z-index: 1;
 }
 
@@ -692,7 +692,7 @@ main {
     border-color: rgba(34, 66, 51, 0.15);
 }
 
-/* Text overlay content on top of image */
+/* Text overlay content on top of duotone image */
 .flip-card-front-content {
     position: absolute;
     bottom: 0;
@@ -700,7 +700,7 @@ main {
     right: 0;
     padding: 2.25rem 2rem;
     z-index: 5;
-    background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 45%, rgba(255, 255, 255, 0) 100%); /* soft white gradient vignette for readability */
+    background: linear-gradient(to top, rgba(34, 66, 51, 0.85) 0%, rgba(34, 66, 51, 0) 100%); /* Vignette overlay for readable text */
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -708,7 +708,7 @@ main {
 }
 
 .flip-card-front-content .service-card-title {
-    color: var(--color-primary); /* Forest sage green */
+    color: var(--color-white);
     margin: 0 0 0.25rem 0;
     font-size: 1.25rem;
 }
@@ -749,23 +749,35 @@ main {
     height: 180px;
     width: 100%;
     overflow: hidden;
-    background-color: var(--color-white); /* White background for clean blending */
+    background-color: var(--color-primary); /* Base color for duotone multiply blend */
 }
 
-/* Removed duotone overlay for clean original colors */
 .service-card-image-wrapper::after {
-    display: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(34, 66, 51, 0) 50%, rgba(34, 66, 51, 0.4) 100%);
+    pointer-events: none;
+    display: block;
 }
 
 .service-card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease, opacity 0.6s ease;
+    filter: grayscale(100%) contrast(1.1) brightness(0.9);
+    mix-blend-mode: multiply;
+    opacity: 0.85;
 }
 
 .service-card:hover .service-card-image {
     transform: scale(1.05);
+    opacity: 0.95;
+    filter: grayscale(90%) contrast(1.15) brightness(0.85); /* Retains elegant duotone wash on hover */
 }
 
 .service-card-content {
