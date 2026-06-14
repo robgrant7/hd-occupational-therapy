@@ -547,9 +547,6 @@ main {
         grid-template-columns: repeat(2, 1fr);
         gap: 2.25rem;
     }
-    .services-grid > :nth-child(7) {
-        grid-column: 1 / span 2;
-    }
 }
 
 @media (min-width: 1100px) {
