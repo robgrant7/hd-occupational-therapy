@@ -575,6 +575,13 @@ main {
     border-color: rgba(34, 66, 51, 0.15);
 }
 
+.service-card-header-spacer {
+    height: 180px;
+    width: 100%;
+    background-color: var(--color-primary); /* Forest sage green */
+    flex-shrink: 0;
+}
+
 /* Flip Card Specific Styles */
 .flip-card {
     perspective: 1000px;
