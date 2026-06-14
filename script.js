@@ -239,4 +239,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
         }, 15000 / 10); // 1.5 seconds
     });
+
+    // -------------------------------------------------------------
+    // 7. Click-to-Flip Breathlessness Management Card
+    // -------------------------------------------------------------
+    const flipCard = document.getElementById('breathlessness-card');
+    if (flipCard) {
+        const handleFlip = (e) => {
+            // Prevent default behavior for keyboard spacebar to prevent page scrolling
+            if (e.key === ' ') {
+                e.preventDefault();
+            }
+            // Toggle flipped state on click or keydowns (Enter / Space)
+            if (e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
+                flipCard.classList.toggle('flipped');
+            }
+        };
+
+        flipCard.addEventListener('click', handleFlip);
+        flipCard.addEventListener('keydown', handleFlip);
+    }
 });
