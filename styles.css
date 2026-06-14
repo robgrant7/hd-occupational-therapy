@@ -624,6 +624,18 @@ main {
     transform: rotateY(0deg);
 }
 
+.flip-card-front-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.flip-card:hover .flip-card-front-image {
+    transform: scale(1.05); /* Zoom image slightly on card hover */
+}
+
 /* Back Side is relative, defining the card height based on text description */
 .flip-card-back {
     position: relative;
@@ -638,18 +650,26 @@ main {
     border-color: rgba(34, 66, 51, 0.15);
 }
 
-.flip-card-front-content {
-    padding: 2.25rem 2rem;
+/* Frosted-glass title banner at the bottom of the full image */
+.flip-card-front-banner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    padding: 1.5rem 2rem;
+    border-top: 1px solid rgba(34, 66, 51, 0.05);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    flex-grow: 1;
+    z-index: 3;
 }
 
-.flip-card-front-content .service-card-title {
-    margin-top: 0; /* No icon offset on front side */
-    margin-bottom: 0.5rem;
+.flip-card-front-banner .service-card-title {
+    margin: 0 0 0.25rem 0;
+    font-size: 1.25rem;
+    color: var(--color-primary);
 }
 
 .flip-hint {
