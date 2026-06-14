@@ -241,24 +241,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // -------------------------------------------------------------
-    // 7. Click-to-Flip Breathlessness Management Card
+    // 7. Click-to-Flip Service Cards
     // -------------------------------------------------------------
-    const flipCard = document.getElementById('breathlessness-card');
-    if (flipCard) {
+    const flipCards = document.querySelectorAll('.flip-card');
+    flipCards.forEach(card => {
         const handleFlip = (e) => {
-            console.log('Breathlessness card flip event triggered. Event type:', e.type, 'Key:', e.key || 'N/A');
+            console.log('Flip card event triggered. Card ID:', card.id, 'Event type:', e.type, 'Key:', e.key || 'N/A');
             // Prevent default behavior for keyboard spacebar to prevent page scrolling
             if (e.key === ' ') {
                 e.preventDefault();
             }
             // Toggle flipped state on click or keydowns (Enter / Space)
             if (e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
-                flipCard.classList.toggle('flipped');
-                console.log('Breathlessness card toggled. Flipped class active:', flipCard.classList.contains('flipped'));
+                card.classList.toggle('flipped');
+                console.log('Card toggled. Flipped class active:', card.classList.contains('flipped'));
             }
         };
 
-        flipCard.addEventListener('click', handleFlip);
-        flipCard.addEventListener('keydown', handleFlip);
-    }
+        card.addEventListener('click', handleFlip);
+        card.addEventListener('keydown', handleFlip);
+    });
 });
