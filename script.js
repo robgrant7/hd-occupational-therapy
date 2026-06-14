@@ -246,6 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const flipCard = document.getElementById('breathlessness-card');
     if (flipCard) {
         const handleFlip = (e) => {
+            console.log('Breathlessness card flip event triggered. Event type:', e.type, 'Key:', e.key || 'N/A');
             // Prevent default behavior for keyboard spacebar to prevent page scrolling
             if (e.key === ' ') {
                 e.preventDefault();
@@ -253,6 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Toggle flipped state on click or keydowns (Enter / Space)
             if (e.type === 'click' || e.key === 'Enter' || e.key === ' ') {
                 flipCard.classList.toggle('flipped');
+                console.log('Breathlessness card toggled. Flipped class active:', flipCard.classList.contains('flipped'));
             }
         };
 
