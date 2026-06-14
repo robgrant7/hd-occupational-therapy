@@ -575,11 +575,15 @@ main {
     border-color: rgba(34, 66, 51, 0.15);
 }
 
-.service-card-header-spacer {
-    height: 180px;
-    width: 100%;
-    background-color: var(--color-primary); /* Forest sage green */
-    flex-shrink: 0;
+/* Back face layout overrides to place icon at the top naturally without clipping */
+.flip-card-back .service-icon-wrapper {
+    position: static;
+    margin-bottom: 1.5rem;
+    box-shadow: none;
+}
+
+.flip-card-back .service-card-title {
+    margin-top: 0;
 }
 
 /* Flip Card Specific Styles */
